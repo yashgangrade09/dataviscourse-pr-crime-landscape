@@ -1,22 +1,80 @@
 body {
     font-family: Roboto;
-    padding: 20px;
-    /* background-color: #111111; */
 }
 
 h1 {
     font-size: 40px;
-    /* color: #2E1114; */
+    text-align: center;
 }
 
+
+.bordered {
+    outline: 2px dashed #0C0C0C;
+}
+
+div {
+    vertical-align: top;
+}
+
+
+#container {
+    padding: 10px 20px 10px 20px; /* top right bottm left*/
+    /* padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px; */
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: #EEEEEE;
+}
+
+#map-area {
+    padding: 0px 0px 10px 0px;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #DDDDDD;
+}
 .left-content {
     display: inline-block;
-    width: 65%;
-    outline: 5px dotted #0C0C0C;
+    width: 63%;
 }
 
 .right-content {
     display: inline-block;
-    width: 32%;
-    outline: 5px dotted #0C0C0C;
+    width: 33%;
+}
+
+.statistics-view {
+    padding: 10px 20px 10px 20px;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sub-stat {
+    display: inline-block;
+    width: 49%;
+}
+
+#statistics-box {
+    padding: 0px 0px 10px 0px;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #DDDDDD;
+}
+
+#stats-graphs {
+    display:inline-block;
+    width: 80%;
+}
+
+.stats-legend {
+    display: inline-block;
+    width: 18%;
+}
+
+.div-label {
+    text-align: left;
+    padding-left: 10px;
 }

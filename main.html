@@ -11,28 +11,49 @@
 <body>
     <!--  Page header -->
     <h1> The Crime Landscape of Salt Lake City </h1>
+    <div id="container" class="bordered">
+        <div id="map-area" class="bordered">
+            <h2 class='div-label'>Map Area</h2>
+            <!--  All of the map stuff goes here-->
+            <div id="map-view-box" class="left-content bordered">
+                <h3>&ltMap goes here&gt</h3>
+            </div>
 
-    <!--  All of the map stuff goes here-->
-    <div id="mapView" class="left-content">
-        <h3>&ltMap goes here&gt</h3>
+            <!--  Check boxes for crime types-->
+            <div id="crime-selection-box" class="right-content bordered">
+                <h3>&ltCrime selection goes here&gt</h3>
+            </div>
+
+            <!--  Slider for selection a particular year and month-->
+            <div id="time-sliders-box" class="left-content bordered">
+                <h3>&ltYear and month sliders goes here&gt</h3>
+            </div>
+
+            <!--  Shows summary information about the current selection-->
+            <div id="summary-box" class="right-content bordered">
+                <h3>&ltSummary information goes here&gt</h3>
+            </div>
+        </div>
+
+        <div id="statistics-box" class="statistics-view bordered">
+            <h2 class="div-label">Statistics Area<h2>
+            <div id="stats-graphs" class="bordered">
+                <div id="yearly-stats" class="bordered sub-stat">
+                    <h3>&ltYearly Stats&gt</h3>
+                </div>
+                <div id="monthly-stats" class="bordered sub-stat">
+                    <h3>&ltMonthly Stats&gt</h3>
+                </div>
+                <div id="weekly-stats" class="bordered sub-stat">
+                    <h3>&ltWeekly Stats&gt</h3>
+                </div>
+                <div id="daily-stats" class="bordered sub-stat">
+                    <h3>&ltDaily Stats&gt</h3>
+                </div>
+            </div>
+            <div id="stats-legend" class="bordered stats-legend">
+                <h3>&ltLegend&gt</h3>
+            </div>
+        </div>
     </div>
-
-    <!--  Check boxes for crime types-->
-    <div id="crime-selection" class="right-content">
-        <h3>&ltCrime selection goes here&gt</h3>
-    </div>
-
-    <!--  Slider for selection a particular year and month-->
-    <div id = "time-sliders" class="left-content">
-        <h3>&ltYear and month sliders goes here&gt</h3>
-    </div>
-
-    <!--  Shows summary information about the current selection-->
-    <div id = "summary-box" class="right-content">
-        <h3>&ltSummary information goes here&gt</h3>
-    </div>
-
-    <!-- <div class="statistics-view">
-
-    </div> -->
 </body>
