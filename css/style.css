@@ -1,0 +1,22 @@
+body {
+    font-family: Roboto;
+    padding: 20px;
+    /* background-color: #111111; */
+}
+
+h1 {
+    font-size: 40px;
+    /* color: #2E1114; */
+}
+
+.left-content {
+    display: inline-block;
+    width: 65%;
+    outline: 5px dotted #0C0C0C;
+}
+
+.right-content {
+    display: inline-block;
+    width: 32%;
+    outline: 5px dotted #0C0C0C;
+}
