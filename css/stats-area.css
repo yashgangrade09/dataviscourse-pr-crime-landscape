@@ -1,0 +1,28 @@
+.statistics-view {
+    padding: 10px 20px 10px 20px;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sub-stat {
+    display: inline-block;
+    width: 49%;
+}
+
+#statistics-box {
+    padding: 0px 0px 10px 0px;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #DDDDDD;
+}
+
+#stats-graphs {
+    display:inline-block;
+    width: 80%;
+}
+
+.stats-legend {
+    display: inline-block;
+    width: 18%;
+}

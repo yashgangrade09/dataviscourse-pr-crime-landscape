@@ -6,12 +6,24 @@
     <title>Visualization for Data Science - Homework 6</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/map-area.css"/>
+    <link rel="stylesheet" href="css/stats-area.css"/>
     <script src="https://d3js.org/d3.v5.js"></script>
 </head>
 <body>
     <!--  Page header -->
     <h1> The Crime Landscape of Salt Lake City </h1>
+
+    <!--  Container div -->
     <div id="container" class="bordered">
+
+        <!-- Map area consits of the:
+            - map itself
+            - crime type selection
+            - year and month sliders
+            - summary box
+         -->
+
         <div id="map-area" class="bordered">
             <h2 class='div-label'>Map Area</h2>
             <!--  All of the map stuff goes here-->
@@ -35,22 +47,33 @@
             </div>
         </div>
 
+        <!-- Statistics area consits of the:
+            - yearly, monthly, weekly and daily trend charts for selected crimes
+            - legend for the trend charts
+         -->
+
         <div id="statistics-box" class="statistics-view bordered">
             <h2 class="div-label">Statistics Area<h2>
+            <!-- Container for the trend charts -->
             <div id="stats-graphs" class="bordered">
+                <!-- Trend charts for each of the time scale-->
                 <div id="yearly-stats" class="bordered sub-stat">
                     <h3>&ltYearly Stats&gt</h3>
                 </div>
+
                 <div id="monthly-stats" class="bordered sub-stat">
                     <h3>&ltMonthly Stats&gt</h3>
                 </div>
+
                 <div id="weekly-stats" class="bordered sub-stat">
                     <h3>&ltWeekly Stats&gt</h3>
                 </div>
+
                 <div id="daily-stats" class="bordered sub-stat">
                     <h3>&ltDaily Stats&gt</h3>
                 </div>
             </div>
+            <!-- Legend for the trend charts-->
             <div id="stats-legend" class="bordered stats-legend">
                 <h3>&ltLegend&gt</h3>
             </div>
