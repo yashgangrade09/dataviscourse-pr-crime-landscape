@@ -1,0 +1,46 @@
+<html> 
+  <head> 
+    <title>OpenLayers Solution</title> 
+
+    <script src="js/OpenLayers.js"></script> 
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+   crossorigin=""></script>
+   <script type='text/javascript' src='crimePoints.json'></script>
+ </head> 
+<body>
+<div id="mapid" style="height: 600px"></div> 
+<script type="text/javascript">
+    var mymap = L.map('mapid').setView([40.759759, -111.861619], 13);
+
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+    maxZoom: 18,
+    minZoom: 10
+    }).addTo(mymap);
+
+    var marker = L.marker([40.759759, -111.861619]).addTo(mymap);
+    // var circle = L.circle([40.759759, -111.861719], {
+    //                 color: 'red',
+    //                 fillColor: '#f03',
+    //                 fillOpacity: 0.5,
+    //                 radius: 25
+    //                 }).addTo(mymap);
+
+    for(var i = 0; i < markers.length; i++){
+        L.circle( [markers[i].lat, markers[i].lng],                     
+                    {color: 'red',
+                    fillColor: '#f03',
+                    fillOpacity: 0.5,
+                    radius: 25
+                    })
+         .bindPopup("Location of Crime: " + markers[i].Location + "<br>Crime Type: " + markers[i].crimeType)
+         .addTo(mymap);
+    }
+</script>
+
+</body> 
+</html> 
