@@ -1,7 +1,8 @@
 class TimeSlider {
 
-	constructor (activeYear) {
+	constructor (activeYear, mapView) {
 		this.activeYear = activeYear;
+        this.mapView = mapView;
 	}
 
 	drawYearBar() {
@@ -36,6 +37,7 @@ class TimeSlider {
             sliderText.attr('x', yearScale(this.value));            
             that.activeYear = this.value;
             that.updateYear(that.activeYear);
+            that.mapView.showViews(that.activeYear);
             //console.log(that.activeYear);
         });
     }
