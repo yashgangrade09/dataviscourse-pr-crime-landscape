@@ -1,0 +1,11 @@
+CASES,UCR CODE,UCR DESCRIPTION,IBR CODE,OCCUR DATE,REPORT DATE,DAY OF WEEK,LOCATION,CITY,CITY COUNCIL,POLICE ZONE,POLICE GRID,X COORDINATE,Y COORDINATE,LATITUDE,LONGITUDE
+SL20097,5404-3,TRAFFIC,90D,1/1/2009,1/1/2009,5,500 S WEST TEMPLE ST                                                                                    ,SALT LAKE CITY,4,115,PEF,1891038,883582,40.739003,-111.896256
+SL200917,5404-0,TRAFFIC,90D,1/1/2009,1/1/2009,5,400 S 200 W                                                                                             ,SALT LAKE CITY,4,115,DTN,1890307,883997,40.760525,-111.896919
+SL200920,5404-0,TRAFFIC,90D,1/1/2009,1/1/2009,5,000 W 300 S                                                                                             ,SALT LAKE CITY,4,113,DTN,1891280,885159,40.762798,-111.924132
+SL200927,4801-0,OBST POLICE,13B,1/1/2009,1/1/2009,5,300 S WEST TEMPLE ST                                                                                    ,SALT LAKE CITY,4,113,DTN,1891044,885178,40.739003,-111.896256
+SL200934,5404-0,TRAFFIC,90D,1/1/2009,1/1/2009,5,800 S MAIN ST                                                                                           ,SALT LAKE CITY,4,115,PEF,1891880,880776,40.751827,-111.891189
+SL200947,5404-0,TRAFFIC,90D,1/1/2009,1/1/2009,5,100 W 200 S                                                                                             ,SALT LAKE CITY,4,113,DTN,1890902,886014,40.76492,-111.888065
+SL200956,5404-0,TRAFFIC,90D,1/1/2009,1/1/2009,5,600 E 400 S                                                                                             ,SALT LAKE CITY,4,214,CEC,1896644,884347,40.759022,-111.874025
+SL200981,5404-0,TRAFFIC,90D,1/1/2009,1/1/2009,5,900 E 800 S                                                                                             ,SALT LAKE CITY,4,215,EAC,1899429,881228,40.752015,-111.916983
+SL200984,5404-0,TRAFFIC,90D,1/1/2009,1/1/2009,5,400 S 400 W                                                                                             ,SALT LAKE CITY,4,114,DTN,1888663,884079,40.762187,-111.902624
+SL200995,5404-0,TRAFFIC,90D,1/1/2009,1/1/2009,5,700 S WEST TEMPLE ST                                                                                    ,SALT LAKE CITY,4,115,PEF,1891060,881624,40.739003,-111.896256
