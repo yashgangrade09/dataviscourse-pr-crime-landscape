@@ -49,7 +49,8 @@ class TimeSlider {
 
 	showViews (year) {
 		d3.csv("dummydata/"+year+".csv").then(data => {
-			console.log(data);
+			// console.log(data);
+            return data;
 		});
 	}
 }
