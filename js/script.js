@@ -6,6 +6,7 @@ try{
 
 	timeSlider.drawYearBar();
 	timeSlider.showViews(activeYear);
+	mapViewObj.showViews(activeYear);
 
 	let statisticsViewObj = new StatisticsView();
 
