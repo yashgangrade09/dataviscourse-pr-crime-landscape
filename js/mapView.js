@@ -12,7 +12,7 @@ class mapView{
 		// console.log(markers);
 		var greenIcon = new L.Icon({
 	        iconUrl: 'img/marker-icon-2x-green.png',
-	          shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+	          shadowUrl: 'img/marker-shadow.png',
 	          iconSize: [25, 41],
 	          iconAnchor: [12, 41],
 	          popupAnchor: [1, -34],
@@ -20,34 +20,33 @@ class mapView{
 	      });
 	    var redIcon = new L.Icon({
 	        iconUrl: 'img/marker-icon-2x-red.png',
-	          shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+	          shadowUrl: 'img/marker-shadow.png',
 	          iconSize: [25, 41],
 	          iconAnchor: [12, 41],
 	          popupAnchor: [1, -34],
 	          shadowSize: [41, 41]
 	      });
-	    var orangeIcon = new L.Icon({
-	        iconUrl: 'img/marker-icon-2x-orange.png',
-	          shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+	    var violetIcon = new L.Icon({
+	        iconUrl: 'img/marker-icon-2x-violet.png',
+	          shadowUrl: 'img/marker-shadow.png',
 	          iconSize: [25, 41],
 	          iconAnchor: [12, 41],
 	          popupAnchor: [1, -34],
 	          shadowSize: [41, 41]
 	      });
 
-	    var icons = [redIcon, greenIcon, orangeIcon];
-        console.log(markers);
+	    var icons = [redIcon, greenIcon, violetIcon];
 
         for(let i = 0; i < markers.length; i++){
             let icon;
             if(markers[i]["UCR DESCRIPTION"] == "TRAFFIC")
                 icon = icons[0];
             else if(markers[i]["UCR DESCRIPTION"] == "LARCENY")
-                icon = icons[1];
-            else
                 icon = icons[2];
+            else
+                icon = icons[1];
 
-            
+
             let markerTemp = L.marker([markers[i].LATITUDE, markers[i].LONGITUDE], {icon: icon})
              .bindPopup("Location of Crime: " + markers[i]["LOCATION"] + "<br>Crime Type: " 
              	+ markers[i]["UCR DESCRIPTION"] + "<br>Date of Occurence: " + markers[i]["OCCUR DATE"])
