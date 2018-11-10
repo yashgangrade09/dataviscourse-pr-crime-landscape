@@ -1,6 +1,8 @@
 class StatisticsView {
 
 	constructor () {
+
+		/*
 		this.year_svg = d3.select('#yearly-stats')
 						.append('svg')
 						.attr('width', 500)
@@ -20,5 +22,6 @@ class StatisticsView {
 						.append('svg')
 						.attr('width', 500)
 						.attr('height', 300);
+		*/
 	}
 }
