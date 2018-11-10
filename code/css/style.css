@@ -1,0 +1,33 @@
+body {
+    font-family: Roboto;
+}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+/* div {
+    vertical-align: top;
+} */
+
+.bordered {
+    outline: 0px dashed #0C0C0C;
+}
+
+.div-label {
+    text-align: left;
+    padding-left: 10px;
+}
+
+#container {
+    padding: 10px 20px 10px 20px; /* top right bottm left*/
+    /* padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px; */
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: #EEEEEE;
+}

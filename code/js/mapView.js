@@ -11,24 +11,24 @@ class mapView{
 		let that = this;
 		// console.log(markers);
 		var greenIcon = new L.Icon({
-	        iconUrl: 'img/marker-icon-2x-green.png',
-	          shadowUrl: 'img/marker-shadow.png',
+	        iconUrl: 'assets/img/marker-icon-2x-green.png',
+	          shadowUrl: 'assets/img/marker-shadow.png',
 	          iconSize: [25, 41],
 	          iconAnchor: [12, 41],
 	          popupAnchor: [1, -34],
 	          shadowSize: [41, 41]
 	      });
 	    var redIcon = new L.Icon({
-	        iconUrl: 'img/marker-icon-2x-red.png',
-	          shadowUrl: 'img/marker-shadow.png',
+	        iconUrl: 'assets/img/marker-icon-2x-red.png',
+	          shadowUrl: 'assets/img/marker-shadow.png',
 	          iconSize: [25, 41],
 	          iconAnchor: [12, 41],
 	          popupAnchor: [1, -34],
 	          shadowSize: [41, 41]
 	      });
 	    var violetIcon = new L.Icon({
-	        iconUrl: 'img/marker-icon-2x-violet.png',
-	          shadowUrl: 'img/marker-shadow.png',
+	        iconUrl: 'assets/img/marker-icon-2x-violet.png',
+	          shadowUrl: 'assets/img/marker-shadow.png',
 	          iconSize: [25, 41],
 	          iconAnchor: [12, 41],
 	          popupAnchor: [1, -34],
@@ -48,7 +48,7 @@ class mapView{
 
 
             let markerTemp = L.marker([markers[i].LATITUDE, markers[i].LONGITUDE], {icon: icon})
-             .bindPopup("Location of Crime: " + markers[i]["LOCATION"] + "<br>Crime Type: " 
+             .bindPopup("Location of Crime: " + markers[i]["LOCATION"] + "<br>Crime Type: "
              	+ markers[i]["UCR DESCRIPTION"] + "<br>Date of Occurence: " + markers[i]["OCCUR DATE"])
              // .addTo(that.LayerGroup);
              that.LayerGroup.addLayer(markerTemp);
@@ -63,10 +63,10 @@ class mapView{
 	    minZoom: 10
 	    }).addTo(that.mymap);
 
-	    
+
 	    // var marker = L.marker([40.759759, -111.861619]).addTo(that.mymap);
 	    this.LayerGroup.clearLayers();
-	    
+
 	    // var marker = L.marker([40.759759, -111.861619]).addTo(that.LayerGroup);
 	    // var marker = L.marker([40.759759, -111.861619]);
 
