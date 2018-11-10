@@ -47,7 +47,7 @@ class mapView{
             else
                 icon = icons[2];
 
-
+            
             let markerTemp = L.marker([markers[i].LATITUDE, markers[i].LONGITUDE], {icon: icon})
              .bindPopup("Location of Crime: " + markers[i]["LOCATION"] + "<br>Crime Type: " 
              	+ markers[i]["UCR DESCRIPTION"] + "<br>Date of Occurence: " + markers[i]["OCCUR DATE"])
