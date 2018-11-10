@@ -31,6 +31,40 @@ try{
 	        }]
 	    }	    
 	});
+
+
+	var yearChart = new Chart (document.getElementById("year-chart") , {
+		type: 'line',
+		data: {
+			labels: [2008, 2009, 2010],
+			datasets: [{
+				data: [50, 69, 78],
+				label: 'Traffic',
+				borderColor: '#AA3939',
+				fill: false
+			},
+			{
+				data: [6, 12, 15],
+				label: 'Larceny',
+				borderColor: '#226666',
+				fill: false
+			},
+			{
+				data: [2, 5, 9],
+				label: 'Arson',
+				borderColor: '#7B9F35',
+				fill: false
+			}]},
+		options: {
+			title: {
+				display: true,
+				text: 'Yearly Statistics'
+			}
+		}
+	});
+
+
+
 }
 catch(error){
 	console.log(error);
