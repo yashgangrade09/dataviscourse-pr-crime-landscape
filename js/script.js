@@ -148,7 +148,7 @@ try{
 		options: {
 			title: {
 				display: true,
-				text: 'Weekly Statistics'
+				text: 'Hourly Statistics'
 			}
 		}
 	});
