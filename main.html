@@ -34,31 +34,36 @@
         <div id="map-area" class="bordered">
             <h2 class='div-label'>Map Area</h2>
             <!--  All of the map stuff goes here-->
-            <div id="map-view-box" class="left-content bordered">
-                <h3>&ltMap goes here&gt</h3>
+            <div class="bordered left-content">
+                <div id="map-view-box" class="bordered">
+                    <!-- <h3>&ltMap goes here&gt</h3> -->
+                </div>
+
+                <!--  Slider for selection a particular year and month-->
+                <div id="time-sliders-box" class="bordered">
+                    <!-- <h3>&ltYear and month sliders goes here&gt</h3> -->
+                </div>
             </div>
 
-            <!--  Check boxes for crime types-->
-            <div id="crime-selection-box" class="right-content bordered" align="left">
-                <h3>Select the crime from the list below</h3>
-                <form action="" method="get">
-                  <input type="checkbox" name="crimeType" value="ARSON"> Arson<br>
-                  <input type="checkbox" name="crimeType" value="ASSAULT" checked="checked"> Assault<br>
-                  <input type="checkbox" name="crimeType" value="KIDNAP"> Kidnapping<br>
-                  <input type="checkbox" name="crimeType" value="LARCENY" checked="checked"> Larceny<br>
-                  <input type="checkbox" name="crimeType" value="TRAFFIC" checked="checked"> Traffic<br>
-                  <input type="submit" value="Apply Filters">
-                </form>
-            </div>
+            <div class="bordered right-content" style="vertical-align:top">
+                <!--  Check boxes for crime types-->
+                <div id="crime-selection-box" class="bordered" align="left">
+                    <h3>Select the crime from the list below</h3>
+                    <form action="" method="get">
+                      <input type="checkbox" name="crimeType" value="ARSON"> Arson<br>
+                      <input type="checkbox" name="crimeType" value="ASSAULT" checked="checked"> Assault<br>
+                      <input type="checkbox" name="crimeType" value="KIDNAP"> Kidnapping<br>
+                      <input type="checkbox" name="crimeType" value="LARCENY" checked="checked"> Larceny<br>
+                      <input type="checkbox" name="crimeType" value="TRAFFIC" checked="checked"> Traffic<br>
+                      <input type="submit" value="Apply Filters">
+                    </form>
+                </div>
 
-            <!--  Slider for selection a particular year and month-->
-            <div id="time-sliders-box" class="left-content bordered">
-                <h3>&ltYear and month sliders goes here&gt</h3>
-            </div>
-
-            <!--  Shows summary information about the current selection-->
-            <div id="summary-box" class="right-content bordered">
-                <h3>&ltSummary information goes here&gt</h3>
+                <!--  Shows summary information about the current selection-->
+                <div id="summary-box" class="bordered">
+                    <!-- <h3>&ltSummary information goes here&gt</h3> -->
+                    <canvas id="summary" width="400" height="300"></canvas>
+                </div>
             </div>
         </div>
 
@@ -74,29 +79,33 @@
                 <!-- Trend charts for each of the time scale-->
                 <div id="yearly-stats" class="bordered sub-stat">
                     <h3>&ltYearly Stats&gt</h3>
+                    <canvas id="year-chart" width="500" height="300"></canvas>
                 </div>
 
                 <div id="monthly-stats" class="bordered sub-stat">
                     <h3>&ltMonthly Stats&gt</h3>
+                    <canvas id="month-chart" width="500" height="300"></canvas>
                 </div>
 
                 <div id="weekly-stats" class="bordered sub-stat">
                     <h3>&ltWeekly Stats&gt</h3>
+                    <canvas id="week-chart" width="500" height="300"></canvas>
                 </div>
 
                 <div id="daily-stats" class="bordered sub-stat">
                     <h3>&ltDaily Stats&gt</h3>
+                    <canvas id="day-chart" width="500" height="300"></canvas>
                 </div>
             </div>
             <!-- Legend for the trend charts-->
-            <div id="stats-legend" class="bordered stats-legend">
-                <h3>&ltLegend&gt</h3>
-            </div>
+            <!-- <div id="stats-legend" class="bordered stats-legend" style="vertical-align:top">
+            </div> -->
         </div>
     </div>
     <script type="application/javascript" src="js/timeslider.js"></script>
     <script type="application/javascript" src="js/mapView.js"></script>
     <script type="application/javascript" src="js/statisticsView.js"></script>
+    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 	<script type="application/javascript" src="js/script.js"></script>
 
 </body>

@@ -7,12 +7,12 @@ h1 {
     text-align: center;
 }
 
-div {
+/* div {
     vertical-align: top;
-}
+} */
 
 .bordered {
-    outline: 2px dashed #0C0C0C;
+    outline: 0px dashed #0C0C0C;
 }
 
 .div-label {
