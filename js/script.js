@@ -10,19 +10,26 @@ try{
 	let statisticsViewObj = new StatisticsView();
 
 	var ctx = document.getElementById("summary");
-	console.log(ctx);
 	var myChart = new Chart(ctx, {
 	    type: 'doughnut',
 	    data: {
-	        labels: ['Arson', 'Larceny', 'Traffic'],
+	        labels: ["Traffic", "Larceny", "Arson"],
 	        datasets: [{
-	            label: 'Percentage of total crimes',
-	            data: [14, 10, 3]
-	        }],
-			backgroundColor: [
-				   '#AA3939', '#226666', '#7B9F35'
-			   ]
-	    }
+	            label: '# of Votes',
+	            data: [12, 19, 3],
+	            backgroundColor: [
+	                '#AA3939',
+	                '#226666',
+	                '#7B9F35'
+	            ],
+	            borderColor: [
+	                '#000000',
+	                '#000000',
+	                '#000000'
+	            ],
+	            borderWidth: 1
+	        }]
+	    }	    
 	});
 }
 catch(error){
