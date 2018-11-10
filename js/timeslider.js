@@ -30,11 +30,12 @@ class TimeSlider {
         let sliderText = sliderLabel.append('text')
         							.text(this.activeYear)
         							.attr('x', yearScale(this.activeYear))
-        							.attr('y', 25);
+        							.attr('y', 25)
+									.style('text-anchor', 'start');
 
         yearSlider.on('input', function() {
             sliderText.text(this.value);
-            sliderText.attr('x', yearScale(this.value));            
+            sliderText.attr('x', yearScale(this.value));
             that.activeYear = this.value;
             that.updateYear(that.activeYear);
             that.mapView.showViews(that.activeYear);
