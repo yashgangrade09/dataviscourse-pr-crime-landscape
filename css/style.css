@@ -12,7 +12,7 @@ h1 {
 } */
 
 .bordered {
-    outline: 2px dashed #0C0C0C;
+    outline: 0px dashed #0C0C0C;
 }
 
 .div-label {
