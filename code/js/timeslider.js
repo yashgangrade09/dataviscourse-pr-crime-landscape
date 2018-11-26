@@ -1,8 +1,9 @@
 class TimeSlider {
 
-	constructor (activeYear, mapView) {
+	constructor (activeYear, mapView, statisticsView) {
 		this.activeYear = activeYear;
         this.mapView = mapView;
+        this.statisticsView = statisticsView;
 	}
 
 	drawYearBar() {
@@ -39,7 +40,7 @@ class TimeSlider {
             that.activeYear = this.value;
             that.updateYear(that.activeYear);
             that.mapView.showViews(that.activeYear);
-            //console.log(that.activeYear);
+            that.statisticsView.showViews(that.activeYear);
         });
     }
 
