@@ -5,12 +5,12 @@ class mapView{
     	d3.select("#map-view-box").attr("style", "height:500px");
     	this.mymap = L.map('map-view-box', {
     		center: [40.759759, -111.861619],
-    		minZoom: 9,
-    		zoom: 10
+    		minZoom: 11,
+    		zoom: 11
     	});
 
     	// this.LayerGroup = L.layerGroup().addTo(this.mymap);
-    	this.markerClusters = L.markerClusterGroup();
+    	this.markerClusters = L.markerClusterGroup({maxClusterRadius: 40, chunkedLoading: true});
 	}
 
 	showCrimeMarkers(markers) {
@@ -44,17 +44,18 @@ class mapView{
 	    var icons = [redIcon, greenIcon, violetIcon];
 
         for(let i = 0; i < markers.length; i++){
-            let myicon;
-            // if(markers[i]["UCR DESCRIPTION"] == "TRAFFIC")
-            //     icon = icons[0];
-            // else if(markers[i]["UCR DESCRIPTION"] == "LARCENY")
-            //     icon = icons[2];
-            // else
-            //     icon = icons[1];
-            myicon = icons[0];
+            let icon;
+            if(markers[i]["DESCRIPTION"] == "BURGLARY")
+                icon = icons[0];
+            else if(markers[i]["DESCRIPTION"] == "LARCENY")
+                icon = icons[2];
+            else
+                icon = icons[1];
+            // myicon = icons[0];
 
-            let markerTemp = L.marker([markers[i]["latitude"], markers[i]["longitude"]], {icon: myicon})
-             // .bindPopup("Location of Crime: " + markers[i]["address"])
+            let markerTemp = L.marker([markers[i]["LATITUDE"], markers[i]["LONGITUDE"]], {icon: icon})
+                             .bindPopup("Location of Crime: " + markers[i]["ADDRESS"] + "<br>Crime Type: "
+                            + markers[i]["DESCRIPTION"] + "<br>Date of Occurence: " + markers[i]["DATE"]);
              // .addTo(that.markerClusters);
              that.markerClusters.addLayer( markerTemp );
         }
@@ -83,20 +84,17 @@ class mapView{
 	    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
 	    subdomains: ['a', 'b', 'c'],
 	  	maxZoom: 18,
-	    minZoom: 9
+	    minZoom: 11
 	    }).addTo(that.mymap);
 
-	    // var marker = L.marker([40.759759, -111.861619]).addTo(that.mymap);
-	    // this.LayerGroup.clearLayers();
+        this.markerClusters.clearLayers();
 
-	    // var marker = L.marker([40.759759, -111.861619]).addTo(that.LayerGroup);
-	    // var marker = L.marker([40.759759, -111.861619]);
-
-	    // that.LayerGroup.addLayer(marker);
-
-    	d3.csv("data/gmap_addresses.csv").then(function(yearData){
-        	// console.log(JSON.parse(JSON.stringify(yearData)));
-        	that.showCrimeMarkers(JSON.parse(JSON.stringify(yearData)));
+    	d3.csv("data/" + year + "_processed.csv").then(function(yearData){
+        	let plotData = JSON.parse(JSON.stringify(yearData));
+            let filteredData = plotData.filter(d => (d["DESCRIPTION"] == "BURGLARY" 
+                || d["DESCRIPTION"] == "ARSON" || d["DESCRIPTION"] == "LARCENY"));
+            console.log(filteredData);
+        	that.showCrimeMarkers(filteredData);
     	});
 	    that.mymap.addLayer(that.markerClusters);
     }

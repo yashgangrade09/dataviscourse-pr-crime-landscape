@@ -10,7 +10,7 @@ class TimeSlider {
         let that = this;
 
         let yearScale = d3.scaleLinear()
-        					.domain([2008, 2010])
+        					.domain([2008, 2016])
         					.range([0, 700]);
 
         let yearSlider = d3.select('#time-sliders-box')
@@ -20,7 +20,7 @@ class TimeSlider {
         					.classed('slider', true)
         					.attr('type', 'range')
         					.attr('min', 2008)
-        					.attr('max', 2010)
+        					.attr('max', 2016)
         					.attr('value', this.activeYear);
 
         let sliderLabel = d3.select('#time-sliders-box')
@@ -30,11 +30,11 @@ class TimeSlider {
 
         let sliderText = sliderLabel.append('text')
         							.text(this.activeYear)
-        							.attr('x', yearScale(this.activeYear))
+        							.attr('x', 200)
         							.attr('y', 25)
 									.style('text-anchor', 'start');
 
-        yearSlider.on('input', function() {
+        yearSlider.on('mouseup', function() {
             sliderText.text(this.value);
             sliderText.attr('x', yearScale(this.value));
             that.activeYear = this.value;
@@ -50,7 +50,7 @@ class TimeSlider {
 	}
 
 	showViews (year) {
-		d3.csv("dummydata/"+year+".csv").then(data => {
+		d3.csv("data/"+year+"_processed.csv").then(data => {
 			// console.log(data);
             return data;
 		});
