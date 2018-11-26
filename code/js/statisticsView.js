@@ -5,71 +5,45 @@ class StatisticsView {
 	}
 
 	showViews (year) {
-		let crime_list = ['TRAFFIC', 'LARCENY', 'ARSON'];
+		let crime_list = ['TRAFFIC', 'LARCENY', 'ARSON', 'LIQUOR'];
+		//let bgcolor = ['#AA3939', '#226666', '#7B9F35'];
+		let bgcolor = ['#89729E', '#1F4788', '#6B9362', '#E29C45', '#E68364', '#6C7A89', '#5B8930', '#D24D57', '#5D3F6A', '#317589'];
+		let brcolor = ['#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000'];
 
 		d3.csv("data/all_years.csv").then(data => {
-			let crime0_year;
-			let crime1_year;
-			let crime2_year;
-
-		for (let i=0; i<data.length; i++) {
-				if (data[i]['DESCRIPTION'] == crime_list[0]) {
-					crime0_year = [parseInt(data[i][2008]), 
-									parseInt(data[i][2009]), 
-									parseInt(data[i][2010]), 
-									parseInt(data[i][2011]), 
-									parseInt(data[i][2012]), 
-									parseInt(data[i][2013]), 
-									parseInt(data[i][2014]), 
-									parseInt(data[i][2015]), 
-									parseInt(data[i][2016])]
+			let crime_year = [];
+			for (let i=0; i<data.length; i++) {
+				for (let j=0; j<crime_list.length; j++) {
+					if (data[i]['DESCRIPTION'] == crime_list[j]) {
+						crime_year.push([parseInt(data[i][2008]), 
+										parseInt(data[i][2009]), 
+										parseInt(data[i][2010]), 
+										parseInt(data[i][2011]), 
+										parseInt(data[i][2012]), 
+										parseInt(data[i][2013]), 
+										parseInt(data[i][2014]), 
+										parseInt(data[i][2015]), 
+										parseInt(data[i][2016])]);
+					};
+				}
+			}
+			let year_dataset = [];
+			let d;
+			for (let i=0; i<crime_list.length; i++) {
+				d = {
+					data: crime_year[i],
+					label: crime_list[i],
+					borderColor: bgcolor[i],
+					fill: false
 				};
-				if (data[i]['DESCRIPTION'] == crime_list[1]) {
-					crime1_year = [parseInt(data[i][2008]), 
-									parseInt(data[i][2009]), 
-									parseInt(data[i][2010]), 
-									parseInt(data[i][2011]), 
-									parseInt(data[i][2012]), 
-									parseInt(data[i][2013]), 
-									parseInt(data[i][2014]), 
-									parseInt(data[i][2015]), 
-									parseInt(data[i][2016])]
-				};
-				if (data[i]['DESCRIPTION'] == crime_list[2]) {
-					crime2_year = [parseInt(data[i][2008]), 
-									parseInt(data[i][2009]), 
-									parseInt(data[i][2010]), 
-									parseInt(data[i][2011]), 
-									parseInt(data[i][2012]), 
-									parseInt(data[i][2013]), 
-									parseInt(data[i][2014]), 
-									parseInt(data[i][2015]), 
-									parseInt(data[i][2016])]
-				};
-			};
-
+				year_dataset.push(d);
+			}
 			var yearChart = new Chart (document.getElementById("year-chart") , {
 				type: 'line',
 				data: {
 					labels: [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
-					datasets: [{
-						data: crime0_year,
-						label: crime_list[0],
-						borderColor: '#AA3939',
-						fill: false
-					},
-					{
-						data: crime1_year,
-						label: crime_list[1],
-						borderColor: '#226666',
-						fill: false
-					},
-					{
-						data: crime2_year,
-						label: crime_list[2],
-						borderColor: '#7B9F35',
-						fill: false
-					}]},
+					datasets: year_dataset
+				},
 				options: {
 					title: {
 						display: true,
@@ -80,41 +54,23 @@ class StatisticsView {
 		});
 
 		d3.csv("data/"+year+"_processed.csv").then(data => {
-			let crime0 = 0;
-			let crime1 = 0;
-			let crime2 = 0;
-
-            let crime0_month = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-            let crime1_month = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-            let crime2_month = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
-            let crime0_week = [0, 0, 0, 0, 0, 0, 0];
-            let crime1_week = [0, 0, 0, 0, 0, 0, 0];
-            let crime2_week = [0, 0, 0, 0, 0, 0, 0];
-
-            let crime0_day = [0, 0, 0, 0, 0, 0, 0, 0];
-            let crime1_day = [0, 0, 0, 0, 0, 0, 0, 0];
-            let crime2_day = [0, 0, 0, 0, 0, 0, 0, 0];
-
-            for (let i=0; i<data.length; i++) {
-            	if (data[i]['DESCRIPTION'] == crime_list[0]) {
-            		crime0 += 1
-            		crime0_month[data[i]['MONTH']-1] += 1;
-            		crime0_week[data[i]['DOW']-1] += 1;
-            		crime0_day[data[i]['TOD']-1] += 1;
-            	}
-            	else if (data[i]['DESCRIPTION'] == crime_list[1]) {
-            		crime1 += 1
-            		crime1_month[data[i]['MONTH']-1] += 1;
-            		crime1_week[data[i]['DOW']-1] += 1;
-            		crime1_day[data[i]['TOD']-1] += 1;
-            	}
-            	else if (data[i]['DESCRIPTION'] == crime_list[2]) {
-            		crime2 += 1
-            		crime2_month[data[i]['MONTH']-1] += 1;
-            		crime2_week[data[i]['DOW']-1] += 1;
-            		crime2_day[data[i]['TOD']-1] += 1;
-            	}
+			let num_crime = [];
+			let crime_month= [];
+			let crime_week = [];
+			let crime_day = [];
+			for (let i=0; i<data.length; i++) {
+				for (let j=0; j<crime_list.length; j++) {
+					num_crime.push(0);
+					crime_month.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+					crime_week.push([0, 0, 0, 0, 0, 0, 0]);
+					crime_day.push([0, 0, 0, 0, 0, 0, 0, 0]);
+					if (data[i]['DESCRIPTION'] == crime_list[j]) {
+						num_crime[j] += 1;
+						crime_month[j][data[i]['MONTH']-1] += 1;
+						crime_week[j][data[i]['DOW']-1] += 1;
+						crime_day[j][data[i]['TOD']-1] += 1;
+					};
+				}
             }
 
             var summaryChart = new Chart (document.getElementById("summary"), {
@@ -123,36 +79,31 @@ class StatisticsView {
             		labels: crime_list,
             		datasets: [{
             			label: "Number of incidents.",
-            			data: [crime0, crime1, crime2],
-            			backgroundColor: ['#AA3939','#226666','#7B9F35'],
-            			borderColor: ['#000000','#000000','#000000'],
+            			data: num_crime,
+            			backgroundColor: bgcolor,
+            			borderColor: brcolor,
             			borderWidth: 1
             		}]
             	}
             });
 
+            let month_dataset = [];
+			let d;
+			for (let i=0; i<crime_list.length; i++) {
+				d = {
+					data: crime_month[i],
+					label: crime_list[i],
+					borderColor: bgcolor[i],
+					fill: false
+				};
+				month_dataset.push(d);
+			}
             var monthChart = new Chart (document.getElementById("month-chart") , {
 				type: 'line',
 				data: {
 					labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-					datasets: [{
-						data: crime0_month,
-						label: crime_list[0],
-						borderColor: '#AA3939',
-						fill: false
-					},
-					{
-						data: crime1_month,
-						label: crime_list[1],
-						borderColor: '#226666',
-						fill: false
-					},
-					{
-						data: crime2_month,
-						label: crime_list[2],
-						borderColor: '#7B9F35',
-						fill: false
-					}]},
+					datasets: month_dataset
+				},
 				options: {
 					title: {
 						display: true,
@@ -161,28 +112,22 @@ class StatisticsView {
 				}
 			});
 
+			let week_dataset = [];
+			for (let i=0; i<crime_list.length; i++) {
+				d = {
+					data: crime_week[i],
+					label: crime_list[i],
+					borderColor: bgcolor[i],
+					fill: false
+				};
+				week_dataset.push(d);
+			}
 			var weeklyChart = new Chart (document.getElementById("week-chart") , {
 				type: 'line',
 				data: {
 					labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-					datasets: [{
-						data: crime0_week,
-						label: crime_list[0],
-						borderColor: '#AA3939',
-						fill: false
-					},
-					{
-						data: crime1_week,
-						label: crime_list[1],
-						borderColor: '#226666',
-						fill: false
-					},
-					{
-						data: crime2_week,
-						label: crime_list[2],
-						borderColor: '#7B9F35',
-						fill: false
-					}]},
+					datasets: week_dataset
+				},
 				options: {
 					title: {
 						display: true,
@@ -191,28 +136,22 @@ class StatisticsView {
 				}
 			});
 
+			let day_dataset = [];
+			for (let i=0; i<crime_list.length; i++) {
+				d = {
+					data: crime_day[i],
+					label: crime_list[i],
+					borderColor: bgcolor[i],
+					fill: false
+				};
+				day_dataset.push(d);
+			}
 			var dailyChart = new Chart (document.getElementById("day-chart") , {
 				type: 'line',
 				data: {
 					labels: ['00-03', '03-06', '06-09', '09-12', '12-15', '15-18', '18-21', '21-24'],
-					datasets: [{
-						data: crime0_day,
-						label: crime_list[0],
-						borderColor: '#AA3939',
-						fill: false
-					},
-					{
-						data: crime1_day,
-						label: crime_list[1],
-						borderColor: '#226666',
-						fill: false
-					},
-					{
-						data: crime2_day,
-						label: crime_list[2],
-						borderColor: '#7B9F35',
-						fill: false
-					}]},
+					datasets: day_dataset
+				},
 				options: {
 					title: {
 						display: true,
