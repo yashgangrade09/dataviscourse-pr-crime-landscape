@@ -78,7 +78,7 @@ class mapView{
     	}
     }
 
-    showViews(year){
+    showViews(year, crimes){
     	let that = this;
 	    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
@@ -89,14 +89,13 @@ class mapView{
 
         this.markerClusters.clearLayers();
 
-    	d3.csv("dummydata/" + year + ".csv").then(function(yearData){
+    	d3.csv("data/" + year + "_processed.csv").then(function(yearData){
         	let plotData = JSON.parse(JSON.stringify(yearData));
-            let filteredData = plotData.filter(d => (d["DESCRIPTION"] == "BURGLARY"
-                || d["DESCRIPTION"] == "ARSON" || d["DESCRIPTION"] == "LARCENY"));
-            // console.log(filteredData);
+            let filteredData = plotData.filter(d => crimes.indexOf(d["DESCRIPTION"]) != -1);
+            console.log(filteredData, crimes);
+
         	that.showCrimeMarkers(filteredData);
 			d3.select("#container").style('opacity', 1);
-			console.log('Changing to loading false');
     	});
 	    that.mymap.addLayer(that.markerClusters);
     }

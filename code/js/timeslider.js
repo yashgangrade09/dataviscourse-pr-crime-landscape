@@ -6,6 +6,7 @@ class TimeSlider {
         this.statisticsView = statisticsView;
 	}
 
+
 	drawYearBar() {
         let that = this;
 
@@ -34,6 +35,16 @@ class TimeSlider {
         							.attr('y', 25)
 									.style('text-anchor', 'start');
 
+        let checkboxes = document.getElementById("crime-selection").childNodes;
+
+        let values = [];
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].type == 'checkbox' && checkboxes[i].checked == true) {
+                values.push(checkboxes[i].value);
+            }
+        }
+
         yearSlider.on('mouseup', function() {
             sliderText.text(this.value);
             sliderText.attr('x', yearScale(this.value));
@@ -41,7 +52,7 @@ class TimeSlider {
             that.updateYear(that.activeYear);
 			console.log('Changing to loading');
 			d3.select("#container").style('opacity', 0.25);
-            that.mapView.showViews(that.activeYear);
+            that.mapView.showViews(that.activeYear, values);
             that.statisticsView.showViews(that.activeYear);
         });
     }

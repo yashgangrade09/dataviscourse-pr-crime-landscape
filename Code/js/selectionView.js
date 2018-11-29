@@ -1,5 +1,5 @@
-function getData(){
-	console.log("In get data");
+function getData(mapViewObj, statisticsViewObj, timeSliderObj, year){
+	console.log("In get data ", mapViewObj);
 	let checkboxes = document.getElementById("crime-selection").childNodes;
 
 	let values = [];
@@ -9,6 +9,8 @@ function getData(){
 			values.push(checkboxes[i].value);
 		}
 	}
-
-	return values;
+	
+	mapViewObj.showViews(year, values);
+	statisticsViewObj.showViews(activeYear);
+	timeSliderObj.showViews(activeYear);
 }
