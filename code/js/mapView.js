@@ -57,12 +57,12 @@ class mapView{
                              .bindPopup("Location of Crime: " + markers[i]["ADDRESS"] + "<br>Crime Type: "
                             + markers[i]["DESCRIPTION"] + "<br>Date of Occurence: " + markers[i]["DATE"]);
              // .addTo(that.markerClusters);
-             that.markerClusters.addLayer( markerTemp );
+             that.markerClusters.addLayer(markerTemp);
         }
     }
 
     showCrimeMarkersCircles(markers){
-    	let that = this;    	
+    	let that = this;
     	// var div_circle = L.divIcon({ className: "my-div-icon"});
 
     	for(let i = 0; i < markers.length; i++){
@@ -75,7 +75,7 @@ class mapView{
     		.bindPopup("Location of Crime: " + markers[i]["address"])
     		// let markerTemp = L.marker([markers[i]["latitude"], markers[i]["longitude"], {icon: div_circle} );
     		// that.LayerGroup.addLayer(markerTemp);
-    	}	
+    	}
     }
 
     showViews(year){
@@ -91,10 +91,12 @@ class mapView{
 
     	d3.csv("data/" + year + "_processed.csv").then(function(yearData){
         	let plotData = JSON.parse(JSON.stringify(yearData));
-            let filteredData = plotData.filter(d => (d["DESCRIPTION"] == "BURGLARY" 
+            let filteredData = plotData.filter(d => (d["DESCRIPTION"] == "BURGLARY"
                 || d["DESCRIPTION"] == "ARSON" || d["DESCRIPTION"] == "LARCENY"));
-            console.log(filteredData);
+            // console.log(filteredData);
         	that.showCrimeMarkers(filteredData);
+			d3.select("#container").style('opacity', 1);
+			console.log('Changing to loading false');
     	});
 	    that.mymap.addLayer(that.markerClusters);
     }

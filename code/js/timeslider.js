@@ -39,6 +39,8 @@ class TimeSlider {
             sliderText.attr('x', yearScale(this.value));
             that.activeYear = this.value;
             that.updateYear(that.activeYear);
+			console.log('Changing to loading');
+			d3.select("#container").style('opacity', 0.25);
             that.mapView.showViews(that.activeYear);
             that.statisticsView.showViews(that.activeYear);
         });
