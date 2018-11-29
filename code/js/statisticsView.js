@@ -5,7 +5,7 @@ class StatisticsView {
 	}
 
 	showViews (year) {
-		let crime_list = ['TRAFFIC', 'LARCENY', 'ARSON', 'LIQUOR'];
+		let crime_list = ['Traffic', 'Drugs', 'Assault'];
 		//let bgcolor = ['#AA3939', '#226666', '#7B9F35'];
 		let bgcolor = ['#89729E', '#1F4788', '#6B9362', '#E29C45', '#E68364', '#6C7A89', '#5B8930', '#D24D57', '#5D3F6A', '#317589'];
 		let brcolor = ['#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000'];
@@ -53,8 +53,7 @@ class StatisticsView {
 			});
 		});
 
-		// d3.csv("data/"+year+"_processed.csv").then(data => {
-			d3.csv("dummydata/"+year+"_processed.csv").then(data => {
+		d3.csv("data/"+year+"_processed.csv").then(data => {
 			let num_crime = [];
 			let crime_month= [];
 			let crime_week = [];
@@ -151,6 +150,7 @@ class StatisticsView {
 				type: 'line',
 				data: {
 					labels: ['00-03', '03-06', '06-09', '09-12', '12-15', '15-18', '18-21', '21-24'],
+					//labels: ['12AM-3AM', '3AM-6AM', '6AM-9AM', '9AM-12PM', '12PM-3PM', '3PM-6PM', '6PM-9PM', '9PM-12AM'],
 					datasets: day_dataset
 				},
 				options: {
