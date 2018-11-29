@@ -24,8 +24,7 @@
     <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css" />
     <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css" />
     <script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js'></script>
-
-
+    <script type="application/javascript" src="js/selectionView.js"></script>
 </head>
 <body>
     <!--  Page header -->
@@ -59,14 +58,15 @@
                 <!--  Check boxes for crime types-->
                 <div id="crime-selection-box" class="bordered" align="left">
                     <h3>Select the crime(s) to visualize</h3>
-                    <form action="" method="get">
-                      <input type="checkbox" name="crimeType" value="ARSON" checked="checked"> Arson<br>
-                      <input type="checkbox" name="crimeType" value="ASSAULT"> Assault<br>
-                      <input type="checkbox" name="crimeType" value="KIDNAP"> Kidnapping<br>
-                      <input type="checkbox" name="crimeType" value="LARCENY" checked="checked"> Larceny<br>
-                      <input type="checkbox" name="crimeType" value="TRAFFIC" checked="checked"> Traffic<br>
-                      <input type="submit" value="Apply Filters">
-                    </form>
+                    <div id='crime-selection'>
+                        <input type="checkbox" name="crimeType" value="ARSON" checked="checked"> Arson<br>
+                        <input type="checkbox" name="crimeType" value="ASSAULT"> Assault<br>
+                        <input type="checkbox" name="crimeType" value="KIDNAP"> Kidnapping<br>
+                        <input type="checkbox" name="crimeType" value="LARCENY" checked="checked"> Larceny<br>
+                        <input type="checkbox" name="crimeType" value="TRAFFIC" checked="checked"> Traffic<br>
+                    </div>
+                    <button type="button" value="Apply Filters" id = "crime-selection-btn">Update</button>
+                    
                 </div>
 
                 <!--  Shows summary information about the current selection-->

@@ -89,7 +89,7 @@ class mapView{
 
         this.markerClusters.clearLayers();
 
-    	d3.csv("data/" + year + "_processed.csv").then(function(yearData){
+    	d3.csv("dummydata/" + year + ".csv").then(function(yearData){
         	let plotData = JSON.parse(JSON.stringify(yearData));
             let filteredData = plotData.filter(d => (d["DESCRIPTION"] == "BURGLARY"
                 || d["DESCRIPTION"] == "ARSON" || d["DESCRIPTION"] == "LARCENY"));

@@ -53,7 +53,8 @@ class StatisticsView {
 			});
 		});
 
-		d3.csv("data/"+year+"_processed.csv").then(data => {
+		// d3.csv("data/"+year+"_processed.csv").then(data => {
+			d3.csv("dummydata/"+year+"_processed.csv").then(data => {
 			let num_crime = [];
 			let crime_month= [];
 			let crime_week = [];
