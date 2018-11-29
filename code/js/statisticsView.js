@@ -10,7 +10,7 @@ class StatisticsView {
 		let bgcolor = ['#89729E', '#1F4788', '#6B9362', '#E29C45', '#E68364', '#6C7A89', '#5B8930', '#D24D57', '#5D3F6A', '#317589'];
 		let brcolor = ['#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000'];
 
-		d3.csv("data/all_years.csv").then(data => {
+		d3.csv("processeddata/all_years.csv").then(data => {
 			let crime_year = [];
 			for (let i=0; i<data.length; i++) {
 				for (let j=0; j<crime_list.length; j++) {
@@ -53,7 +53,7 @@ class StatisticsView {
 			});
 		});
 
-		d3.csv("data/"+year+"_processed.csv").then(data => {
+		d3.csv("processeddata/"+year+"_processed.csv").then(data => {
 			let num_crime = [];
 			let crime_month= [];
 			let crime_week = [];
