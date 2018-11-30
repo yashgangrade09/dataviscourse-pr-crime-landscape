@@ -34,16 +34,13 @@
          -->
 
         <div id="map-area" class="bordered">
-            <!-- <h2 class='div-label'>Map Area</h2> -->
             <!--  All of the map stuff goes here-->
             <div class="bordered left-content">
                 <div id="map-view-box" class="bordered">
-                    <!-- <h3>&ltMap goes here&gt</h3> -->
                 </div>
 
                 <!--  Slider for selection a particular year and month-->
                 <div id="time-sliders-box" class="bordered">
-                    <!-- <h3>&ltYear and month sliders goes here&gt</h3> -->
                 </div>
             </div>
 
@@ -57,13 +54,10 @@
                             <input class='checkboxes' type="checkbox" name="crimeType" value="Burglary/ Larceny/ Robbery"> Burglary/ Larceny/ Robbery <br>
                             <input class='checkboxes' type="checkbox" name="crimeType" value="Damaged Property"> Damaged property<br>
                             <input class='checkboxes' type="checkbox" name="crimeType" value="Drugs" checked="checked"> Drug offense<br>
-                            <!-- <input class='checkboxes' type="checkbox" name="crimeType" value="DUI" checked="checked"> DUI<br> -->
-                            <!-- <input class='checkboxes' type="checkbox" name="crimeType" value="Hit and Run"> Hit and Run<br> -->
                         </div>
                         <div class='.column'>
                             <input class="checkboxes" type="checkbox" name="crimeType" value="Homicide"> Homicide<br>
                             <input class="checkboxes" type="checkbox" name="crimeType" value="Kidnap"> Kidnapping<br>
-                            <!-- <input class="checkboxes" type="checkbox" name="crimeType" value="Sexual Assault/ Sexual Offense">Sexual Offense<br> -->
                             <input class="checkboxes" type="checkbox" name="crimeType" value="Traffic"> Traffic violations<br>
                             <input class="checkboxes" type="checkbox" name="crimeType" value="Weapons"> Weapons offense<br>
                         </div>
@@ -74,7 +68,6 @@
                 <div></div>
                 <!--  Shows summary information about the current selection-->
                 <div id="summary-box" class="bordered" style="padding-top:20px;">
-                    <!-- <h3>&ltSummary information goes here&gt</h3> -->
                     <canvas id="summary" width="400" height="300"></canvas>
                 </div>
             </div>
@@ -86,33 +79,25 @@
          -->
 
         <div id="statistics-box" class="statistics-view bordered">
-            <!-- <h2 class="div-label">Statistics Area<h2> -->
             <!-- Container for the trend charts -->
             <div id="stats-graphs" class="bordered">
                 <!-- Trend charts for each of the time scale-->
                 <div id="yearly-stats" class="bordered sub-stat">
-                    <!-- <h3>&ltYearly Stats&gt</h3> -->
                     <canvas id="year-chart" width="500" height="300"></canvas>
                 </div>
 
                 <div id="monthly-stats" class="bordered sub-stat">
-                    <!-- <h3>&ltMonthly Stats&gt</h3> -->
                     <canvas id="month-chart" width="500" height="300"></canvas>
                 </div>
 
                 <div id="weekly-stats" class="bordered sub-stat">
-                    <!-- <h3>&ltWeekly Stats&gt</h3> -->
                     <canvas id="week-chart" width="500" height="300"></canvas>
                 </div>
 
                 <div id="hourly-stats" class="bordered sub-stat">
-                    <!-- <h3>&ltDaily Stats&gt</h3> -->
                     <canvas id="hour-chart" width="500" height="300"></canvas>
                 </div>
             </div>
-            <!-- Legend for the trend charts-->
-            <!-- <div id="stats-legend" class="bordered stats-legend" style="vertical-align:top">
-            </div> -->
         </div>
     </div>
     <script type="application/javascript" src="js/timeslider.js"></script>
