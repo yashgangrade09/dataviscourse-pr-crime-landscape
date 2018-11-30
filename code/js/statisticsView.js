@@ -1,9 +1,10 @@
 class StatisticsView {
 
-	constructor (yeardata, monthdata, weekdata) {
+	constructor (yeardata, monthdata, weekdata, hourdata) {
 		this.yeardata = yeardata;
 		this.monthdata = monthdata;
 		this.weekdata = weekdata;
+		this.hourdata = hourdata;
 
 		this.summaryChart = new Chart (document.getElementById("summary"), {
 			type: 'doughnut',
@@ -51,6 +52,20 @@ class StatisticsView {
 				title: {
 					display: true,
 					text: 'Weekly Statistics'
+				}
+			}
+		});
+
+		this.hourChart = new Chart (document.getElementById("hour-chart") , {
+			type: 'line',
+			data: {
+				labels: ['00-03', '03-06', '06-09', '09-12', '12-15', '15-18', '18-21', '21-24'],
+				datasets: []
+			},
+			options: {
+				title: {
+					display: true,
+					text: 'Hourly Statistics'
 				}
 			}
 		});
@@ -149,6 +164,30 @@ class StatisticsView {
 					text: 'Weekly Statistics'
 				}
 			}
-		});		
+		});
+
+		this.hourChart.destroy();
+		let hour_dataset = [];
+		for (let i=0; i<crime_list.length; i++) {
+			hour_dataset.push({
+				data: this.hourdata[year][crime_list[i]],
+				label: crime_list[i],
+				borderColor: bgcolor[i],
+				fill: false
+			});
+		}
+		this.hourChart = new Chart (document.getElementById("hour-chart") , {
+			type: 'line',
+			data: {
+				labels: ['00-03', '03-06', '06-09', '09-12', '12-15', '15-18', '18-21', '21-24'],
+				datasets: hour_dataset
+			},
+			options: {
+				title: {
+					display: true,
+					text: 'Hourly Statistics'
+				}
+			}
+		});
 	}
 }

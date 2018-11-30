@@ -6,7 +6,6 @@ class TimeSlider {
         this.statisticsView = statisticsView;
 	}
 
-
 	drawYearBar() {
         let that = this;
 
@@ -36,36 +35,20 @@ class TimeSlider {
 									.style('text-anchor', 'start');
 
         yearSlider.on('mouseup', function() {
-            console.log('Slider moved to ', this.value);
+            //console.log('Slider moved to ', this.value);
             let checkboxes = document.getElementsByName("crimeType");
-
             let crime_list = [];
-
             for (var i = 0; i < checkboxes.length; i++) {
                 if (checkboxes[i].type == 'checkbox' && checkboxes[i].checked == true) {
                     crime_list.push(checkboxes[i].value);
                 }
             }
-
             sliderText.text(this.value);
             sliderText.attr('x', yearScale(this.value));
             that.activeYear = this.value;
-            that.updateYear(that.activeYear);
 			d3.select("#container").style('opacity', 0.25);
             that.mapView.showViews(that.activeYear, crime_list);
             that.statisticsView.showViews(that.activeYear, crime_list);
         });
     }
-
-    updateYear (year) {
-		this.activeYear = year;
-		this.showViews (this.activeYear);
-	}
-
-	showViews (year) {
-		d3.csv("data/"+year+"_processed.csv").then(data => {
-			// console.log(data);
-            return data;
-		});
-	}
 }
