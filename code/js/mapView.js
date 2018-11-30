@@ -140,6 +140,5 @@ class mapView{
     	});
 	    // that.mymap.addLayer(that.markerClusters);
         that.markerClusters.addTo(that.mymap);
-        
     }
 }
