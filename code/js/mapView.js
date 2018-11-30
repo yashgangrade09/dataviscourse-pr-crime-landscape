@@ -187,7 +187,8 @@ class mapView{
                 that.groupTraffic.addTo(that.mymap);
                 that.groupWeapons.addTo(that.mymap);
 
-    			d3.select("#container").style('opacity', 1);
+    			// d3.select("#container").style('opacity', 1);
+				d3.select('#leaflet-control-layers-overlays').style('text-align', 'center');
             }
             catch(error){
                 console.log(error);

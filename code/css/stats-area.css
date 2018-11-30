@@ -3,23 +3,25 @@
     display: inline-block;
     width: 100%;
     box-sizing: border-box;
+    box-shadow: 10px 10px 50px -21px rgba(0,0,0,0.75);
 }
 
 .sub-stat {
     display: inline-block;
-    width: 49%;
+    padding-left: 50px;
+    width: 35%;
 }
 
 #statistics-box {
     padding: 0px 0px 10px 0px;
-    width: 100%;
+    width: 95%;
     margin-bottom: 10px;
-    background-color: #DDDDDD;
+    /* background-color: #DDDDDD; */
 }
 
 #stats-graphs {
     display:inline-block;
-    width: 80%;
+    width: 100%;
 }
 
 .stats-legend {

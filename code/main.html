@@ -47,12 +47,12 @@
                 </div>
             </div>
 
-            <div class="bordered right-content" style="vertical-align:top">
+            <div class="bordered right-content" style="vertical-align:top;">
                 <!--  Check boxes for crime types-->
                 <div id="crime-selection-box" class="bordered" align="left">
                     <h3>Select the crime(s) to visualize</h3>
-                    <div id='crime-selection' style="display: flex;">
-                        <div class='.column'> 
+                    <div id='crime-selection' style="display: flex; padding-bottom: 20px;">
+                        <div class='.column'>
                             <input class='checkboxes' type="checkbox" name="crimeType" value="Assault" checked="checked"> Assault<br>
                             <input class='checkboxes' type="checkbox" name="crimeType" value="Burglary/ Larceny/ Robbery"> Burglary/ Larceny/ Robbery <br>
                             <input class='checkboxes' type="checkbox" name="crimeType" value="Damaged Property"> Damaged property<br>
@@ -62,18 +62,18 @@
                         </div>
                         <div class='.column'>
                             <input class="checkboxes" type="checkbox" name="crimeType" value="Homicide"> Homicide<br>
-                            <input class="checkboxes" type="checkbox" name="crimeType" value="Kidnap"> Kidnap<br>
+                            <input class="checkboxes" type="checkbox" name="crimeType" value="Kidnap"> Kidnapping<br>
                             <!-- <input class="checkboxes" type="checkbox" name="crimeType" value="Sexual Assault/ Sexual Offense">Sexual Offense<br> -->
                             <input class="checkboxes" type="checkbox" name="crimeType" value="Traffic"> Traffic violations<br>
                             <input class="checkboxes" type="checkbox" name="crimeType" value="Weapons"> Weapons offense<br>
                         </div>
                     </div>
-                    <button type="button" value="Apply Filters" id = "crime-selection-btn">Update</button>
-                    
                 </div>
 
+                <a href="#" id='crime-selection-btn' class="myButton">Update</a>
+                <div></div>
                 <!--  Shows summary information about the current selection-->
-                <div id="summary-box" class="bordered">
+                <div id="summary-box" class="bordered" style="padding-top:20px;">
                     <!-- <h3>&ltSummary information goes here&gt</h3> -->
                     <canvas id="summary" width="400" height="300"></canvas>
                 </div>

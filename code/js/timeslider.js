@@ -9,10 +9,6 @@ class TimeSlider {
 	drawYearBar() {
         let that = this;
 
-        let yearScale = d3.scaleLinear()
-        					.domain([2008, 2016])
-        					.range([0, 700]);
-
         let yearSlider = d3.select('#time-sliders-box')
         					.append('div')
         					.classed('slider-wrap', true)
@@ -30,9 +26,13 @@ class TimeSlider {
 
         let sliderText = sliderLabel.append('text')
         							.text(this.activeYear)
-        							.attr('x', 200)
-        							.attr('y', 25)
-									.style('text-anchor', 'start');
+        							.attr('x', 70)
+        							.attr('y', 35)
+									.classed('slider-text', true);
+
+		yearSlider.on('input', function() {
+			sliderText.text(this.value);
+		});
 
         yearSlider.on('mouseup', function() {
             let checkboxes = document.getElementsByName("crimeType");
@@ -42,10 +42,9 @@ class TimeSlider {
                     crime_list.push(checkboxes[i].value);
                 }
             }
-            sliderText.text(this.value);
-            sliderText.attr('x', yearScale(this.value));
+            // sliderText.attr('x', 200);
             that.activeYear = this.value;
-			d3.select("#container").style('opacity', 0.25);
+			// d3.select("#container").style('opacity', 0.25);
             that.mapView.showViews(that.activeYear, crime_list);
             that.statisticsView.showViews(that.activeYear, crime_list);
         });

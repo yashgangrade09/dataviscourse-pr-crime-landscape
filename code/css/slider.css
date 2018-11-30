@@ -1,6 +1,6 @@
 .slider {
     -webkit-appearance: none;
-    width: 725px;
+    width: 90%;
     height: 15px;
     border-radius: 5px;
     background: #d3d3d3;
@@ -9,7 +9,7 @@
     -webkit-transition: .2s;
     transition: opacity .2s;
     margin-top: 10px;
-    margin-left: 20px
+    margin-left: 20px;
 }
 
 .slider::-webkit-slider-thumb {
@@ -35,7 +35,7 @@
 }
 
 .slider-label svg {
-    width: 750px;
+    width: 90%;
     height: 35px;
 }
 
@@ -45,7 +45,14 @@
 
 .slider-wrap {
     display: inline-block;
-    float: left;
-    width: 750px;
+    padding-top: 20px;
+    margin-left: 10px;
+    /* float: left; */
+    width: 100%;
     margin-left: 30px;
+}
+
+.slider-text {
+    text-anchor: start;
+    font-size: 30px;
 }
