@@ -7,7 +7,7 @@ try{
 	mapViewObj.showViews(activeYear, crime_list);*/
 
 	let statisticsViewObj = new StatisticsView();
-	statisticsViewObj.showViews(activeYear, crime_list);
+	//statisticsViewObj.showViews(activeYear, crime_list);
 /*
 	let timeSliderObj = new TimeSlider(activeYear, mapViewObj, statisticsViewObj);
 	timeSliderObj.drawYearBar();
