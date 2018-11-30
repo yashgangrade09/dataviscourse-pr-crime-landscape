@@ -1,12 +1,13 @@
 let activeYear = '2008';
 
 try{
+	crime_list = ['Assault', 'Drugs', 'DUI']
 
 	let mapViewObj = new mapView(activeYear);
-	mapViewObj.showViews(activeYear);
+	mapViewObj.showViews(activeYear, crime_list);
 
 	let statisticsViewObj = new StatisticsView();
-	statisticsViewObj.showViews(activeYear);
+	statisticsViewObj.showViews(activeYear, crime_list);
 
 	let timeSliderObj = new TimeSlider(activeYear, mapViewObj, statisticsViewObj);
 	timeSliderObj.drawYearBar();

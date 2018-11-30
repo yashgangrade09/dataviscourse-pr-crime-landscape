@@ -78,7 +78,7 @@ class mapView{
     	}
     }
 
-    showViews(year, crimes){
+    showViews(year, crime_list){
     	let that = this;
 	    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
@@ -91,8 +91,8 @@ class mapView{
 
     	d3.csv("processeddata/" + year + "_processed.csv").then(function(yearData){
         	let plotData = JSON.parse(JSON.stringify(yearData));
-            let filteredData = plotData.filter(d => crimes.indexOf(d["DESCRIPTION"]) != -1);
-            console.log(filteredData, crimes);
+            let filteredData = plotData.filter(d => crime_list.indexOf(d["DESCRIPTION"]) != -1);
+            console.log(filteredData, crime_list);
 
         	that.showCrimeMarkers(filteredData);
 			d3.select("#container").style('opacity', 1);

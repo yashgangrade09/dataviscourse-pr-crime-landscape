@@ -37,11 +37,11 @@ class TimeSlider {
 
         let checkboxes = document.getElementById("crime-selection").childNodes;
 
-        let values = [];
+        let crime_list = [];
 
         for (var i = 0; i < checkboxes.length; i++) {
             if (checkboxes[i].type == 'checkbox' && checkboxes[i].checked == true) {
-                values.push(checkboxes[i].value);
+                crime_list.push(checkboxes[i].value);
             }
         }
 
@@ -52,8 +52,8 @@ class TimeSlider {
             that.updateYear(that.activeYear);
 			console.log('Changing to loading');
 			d3.select("#container").style('opacity', 0.25);
-            that.mapView.showViews(that.activeYear, values);
-            that.statisticsView.showViews(that.activeYear);
+            that.mapView.showViews(that.activeYear, crime_list);
+            that.statisticsView.showViews(that.activeYear, crime_list);
         });
     }
 

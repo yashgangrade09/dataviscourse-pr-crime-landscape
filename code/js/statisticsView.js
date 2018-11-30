@@ -4,8 +4,7 @@ class StatisticsView {
 
 	}
 
-	showViews (year) {
-		let crime_list = ['Traffic', 'Drugs', 'Assault'];
+	showViews (year, crime_list) {
 		//let bgcolor = ['#AA3939', '#226666', '#7B9F35'];
 		let bgcolor = ['#89729E', '#1F4788', '#6B9362', '#E29C45', '#E68364', '#6C7A89', '#5B8930', '#D24D57', '#5D3F6A', '#317589'];
 		let brcolor = ['#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000'];
