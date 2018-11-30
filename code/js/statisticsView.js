@@ -72,14 +72,23 @@ class StatisticsView {
 	}
 
 	showViews (year, crime_list) {
-		//let bgcolor = ['#89729E', '#1F4788', '#6B9362', '#E29C45', '#E68364', '#6C7A89', '#5B8930', '#D24D57', '#5D3F6A', '#317589'];
-		let bgcolor = ['#8e44ad', '#2980b9', '#27ae60', '#f1c40f', '#e67e22', '#e74c3c', '#7f8c8d', '#2c3e50']
-		let brcolor = ['#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000'];
+		let color_map = {'Assault':'#8e44ad', 
+						'Burglary/ Larceny/ Robbery':'#2980b9',
+						'Damaged Property':'#27ae60',
+						'Drugs':'#f1c40f',
+						'Homicide':'#e67e22',
+						'Traffic':'#e74c3c',
+						'Weapons':'#7f8c8d',
+						'Kidnap':'#2c3e50'}
 
 		this.summaryChart.destroy();
 		let summary_dataset = [];
+		let summary_bgcolor = [];
+		let summary_brcolor = [];
 		for (let i=0; i<crime_list.length; i++) {
 			summary_dataset.push(this.yeardata[crime_list[i]][year-2008]);
+			summary_bgcolor.push(color_map[crime_list[i]]);
+			summary_brcolor.push('#000000')
 		}
 		this.summaryChart = new Chart (document.getElementById("summary"), {
 			type: 'doughnut',
@@ -88,8 +97,8 @@ class StatisticsView {
 				datasets: [{
 					label: "Number of incidents.",
 					data: summary_dataset,
-					backgroundColor: bgcolor,
-					borderColor: brcolor,
+					backgroundColor: summary_bgcolor,
+					borderColor: summary_brcolor,
 					borderWidth: 1
 				}]
 			}
@@ -101,7 +110,7 @@ class StatisticsView {
 			year_dataset.push({
 				data: this.yeardata[crime_list[i]],
 				label: crime_list[i],
-				borderColor: bgcolor[i],
+				borderColor: color_map[crime_list[i]],
 				fill: false
 			});
 		}
@@ -125,7 +134,7 @@ class StatisticsView {
 			month_dataset.push({
 				data: this.monthdata[year][crime_list[i]],
 				label: crime_list[i],
-				borderColor: bgcolor[i],
+				borderColor: color_map[crime_list[i]],
 				fill: false
 			});
 		}
@@ -149,7 +158,7 @@ class StatisticsView {
 			week_dataset.push({
 				data: this.weekdata[year][crime_list[i]],
 				label: crime_list[i],
-				borderColor: bgcolor[i],
+				borderColor: color_map[crime_list[i]],
 				fill: false
 			});
 		}
@@ -173,7 +182,7 @@ class StatisticsView {
 			hour_dataset.push({
 				data: this.hourdata[year][crime_list[i]],
 				label: crime_list[i],
-				borderColor: bgcolor[i],
+				borderColor: color_map[crime_list[i]],
 				fill: false
 			});
 		}
