@@ -8,6 +8,9 @@ class StatisticsView {
 
 
 
+
+
+
 	}
 
 	showViews (year, crime_list) {
