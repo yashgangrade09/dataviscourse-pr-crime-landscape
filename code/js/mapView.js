@@ -113,13 +113,13 @@ class mapView{
             let icon;
             switch(markers[i]["DESCRIPTION"]){
                 case "Assault":
-                    icon = redIcon;
+                    icon = violetIcon;
                     break;
                 case "Burglary/ Larceny/ Robbery":
-                    icon = blackIcon;
+                    icon = blueIcon;
                     break;
                 case "Damaged Property":
-                    icon = greyIcon;
+                    icon = greenIcon;
                     break;
                 case "Drugs":
                     icon = yellowIcon;
@@ -128,13 +128,13 @@ class mapView{
                     icon = orangeIcon;
                     break;
                 case "Traffic":
-                    icon = blueIcon;
+                    icon = redIcon;
                     break;
                 case "Weapons":
-                    icon = violetIcon;
+                    icon = greyIcon;
                     break;
                 case "Kidnap":
-                    icon = greenIcon;
+                    icon = blackIcon;
                     break;
                 default :
                     icon = blackIcon;
@@ -219,7 +219,7 @@ class mapView{
                             that.control.addOverlay(that.groupBurglary, 'Burglary');
                             break;
                         case "Damaged Property":
-                            that.control.addOverlay(that.groupDamagedProperty, 'Damaged Prpoerty');
+                            that.control.addOverlay(that.groupDamagedProperty, 'Damaged property');
                             break;
                         case "Drugs":
                             that.control.addOverlay(that.groupDrugs, 'Drug offense');
