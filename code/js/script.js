@@ -18,7 +18,7 @@ try{
 					timeSliderObj.drawYearBar();
 
 					let applyFilter = document.getElementById("crime-selection-btn");
-					applyFilter.onclick = function() {getData(mapViewObj, statisticsViewObj, timeSliderObj, activeYear);};
+					applyFilter.onclick = function() {getData(mapViewObj, statisticsViewObj, timeSliderObj);};
 
 				});
 			});
