@@ -86,5 +86,18 @@ h1 {
 }
 
 #leaflet-control-layers-overlays {
-    text-align: left;
+	text-align: left;
+}
+
+div.tooltip {
+	position: absolute;
+	text-align: center;
+	font-size: 10px;
+	width: 100px;
+	min-height: 10px;
+	padding: 2px;
+	background: lightgrey;
+	stroke: grey;
+	border-radius: 8px;
+	pointer-events: none;
 }
