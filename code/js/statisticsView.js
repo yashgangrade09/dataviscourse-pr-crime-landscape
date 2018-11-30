@@ -72,7 +72,7 @@ class StatisticsView {
 	}
 
 	showViews (year, crime_list) {
-		let color_map = {'Assault':'#8e44ad', 
+		let color_map = {'Assault':'#8e44ad',
 						'Burglary/ Larceny/ Robbery':'#2980b9',
 						'Damaged Property':'#27ae60',
 						'Drugs':'#f1c40f',
