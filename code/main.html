@@ -13,7 +13,6 @@
 
     <link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
     <script type='text/javascript' src='http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js'></script>
-    <script src="https://unpkg.com/leaflet.featuregroup.subgroup@1.0.2/dist/leaflet.featuregroup.subgroup.js"></script>
     <script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js'></script>
     <script type="application/javascript" src="js/leaflet.featuregroup.subgroup-src.js"></script>
     <script type="application/javascript" src="js/selectionView.js"></script>
@@ -54,19 +53,19 @@
                     <h3>Select the crime(s) to visualize</h3>
                     <div id='crime-selection' style="display: flex;">
                         <div class='.column'> 
-                            <input class='checkboxes' type="checkbox" name="crimeType" value="Assault" checked="checked">Assault<br>
-                            <input class='checkboxes' type="checkbox" name="crimeType" value="Burglary/ Larceny/ Robbery"> Burglary/ Larceny/ Robbery<br>
-                            <input class='checkboxes' type="checkbox" name="crimeType" value="Damaged Property"> Damaged Property<br>
-                            <input class='checkboxes' type="checkbox" name="crimeType" value="Drugs" checked="checked"> Drugs<br>
-                            <input class='checkboxes' type="checkbox" name="crimeType" value="DUI" checked="checked"> DUI<br>
+                            <input class='checkboxes' type="checkbox" name="crimeType" value="Assault" checked="checked"> Assault<br>
+                            <input class='checkboxes' type="checkbox" name="crimeType" value="Burglary/ Larceny/ Robbery"> Burglary/ Larceny/ Robbery <br>
+                            <input class='checkboxes' type="checkbox" name="crimeType" value="Damaged Property"> Damaged property<br>
+                            <input class='checkboxes' type="checkbox" name="crimeType" value="Drugs" checked="checked"> Drug offense<br>
+                            <!-- <input class='checkboxes' type="checkbox" name="crimeType" value="DUI" checked="checked"> DUI<br> -->
                             <input class='checkboxes' type="checkbox" name="crimeType" value="Hit and Run"> Hit and Run<br>
                         </div>
                         <div class='.column'>
                             <input class="checkboxes" type="checkbox" name="crimeType" value="Homicide"> Homicide<br>
                             <input class="checkboxes" type="checkbox" name="crimeType" value="Kidnap"> Kidnap<br>
-                            <input class="checkboxes" type="checkbox" name="crimeType" value="Sexual Assault/ Sexual Offense">Sexual Offense<br>
-                            <input class="checkboxes" type="checkbox" name="crimeType" value="Traffic"> Traffic<br>
-                            <input class="checkboxes" type="checkbox" name="crimeType" value="Weapons"> Weapons<br>
+                            <!-- <input class="checkboxes" type="checkbox" name="crimeType" value="Sexual Assault/ Sexual Offense">Sexual Offense<br> -->
+                            <input class="checkboxes" type="checkbox" name="crimeType" value="Traffic"> Traffic violations<br>
+                            <input class="checkboxes" type="checkbox" name="crimeType" value="Weapons"> Weapons offense<br>
                         </div>
                     </div>
                     <button type="button" value="Apply Filters" id = "crime-selection-btn">Update</button>
