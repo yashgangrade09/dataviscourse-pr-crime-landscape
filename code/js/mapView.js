@@ -11,6 +11,12 @@ class mapView{
 
     	// this.LayerGroup = L.layerGroup().addTo(this.mymap);
     	this.markerClusters = L.markerClusterGroup({maxClusterRadius: 40, chunkedLoading: true});
+        this.groupAssault = L.featureGroup.subGroup(this.markerClusters),// use `L.featureGroup.subGroup(parentGroup)` instead of `L.featureGroup()` or `L.layerGroup()`!
+        this.groupBurglary = L.featureGroup.subGroup(this.markerClusters),
+        this.groupDamagedProperty = L.featureGroup.subGroup(this.markerClusters),
+        this.groupDrugs = L.featureGroup.subGroup(this.markerClusters),
+        this.groupCommon = L.featureGroup.subGroup(this.markerClusters),
+        this.control = L.control.layers(null, null, { collapsed: false });
 	}
 
 	showCrimeMarkers(markers) {
@@ -45,19 +51,36 @@ class mapView{
 
         for(let i = 0; i < markers.length; i++){
             let icon;
-            if(markers[i]["DESCRIPTION"] == "BURGLARY")
+            if(markers[i]["DESCRIPTION"] == "Assault")
                 icon = icons[0];
-            else if(markers[i]["DESCRIPTION"] == "LARCENY")
+            else if(markers[i]["DESCRIPTION"] == "Drugs")
                 icon = icons[2];
             else
                 icon = icons[1];
             // myicon = icons[0];
+            let dateStr = markers[i]["MONTH"] + "/" + markers[i]["DAY"] + "/" + markers[i]["YEAR"];
 
             let markerTemp = L.marker([markers[i]["LATITUDE"], markers[i]["LONGITUDE"]], {icon: icon})
                              .bindPopup("Location of Crime: " + markers[i]["ADDRESS"] + "<br>Crime Type: "
-                            + markers[i]["DESCRIPTION"] + "<br>Date of Occurence: " + markers[i]["DATE"]);
+                            + markers[i]["DESCRIPTION"] + "<br>Date of Occurence: " + dateStr);
              // .addTo(that.markerClusters);
-             that.markerClusters.addLayer(markerTemp);
+             // that.markerClusters.addLayer(markerTemp);
+            switch(markers[i]["DESCRIPTION"]){
+                case "Assault":
+                    markerTemp.addTo(that.groupAssault);
+                    break;
+                case "Burglary/ Larceny/ Robbery":
+                    markerTemp.addTo(that.groupBurglary);
+                    break;
+                case "Damaged Property":
+                    markerTemp.addTo(that.groupDamagedProperty);
+                    break;
+                case "Drugs":
+                    markerTemp.addTo(that.groupDrugs);
+                    break;
+                default :
+                    markerTemp.addTo(that.groupCommon);
+            }
         }
     }
 
@@ -88,15 +111,34 @@ class mapView{
 	    }).addTo(that.mymap);
 
         this.markerClusters.clearLayers();
+        this.control.removeFrom(this.mymap);
 
     	d3.csv("processeddata/" + year + "_processed.csv").then(function(yearData){
+            try{
         	let plotData = JSON.parse(JSON.stringify(yearData));
             let filteredData = plotData.filter(d => crime_list.indexOf(d["DESCRIPTION"]) != -1);
             console.log(filteredData, crime_list);
-
         	that.showCrimeMarkers(filteredData);
+            that.control.addOverlay(that.groupAssault, 'Assault');
+            that.control.addOverlay(that.groupBurglary, 'Second quarter');
+            that.control.addOverlay(that.groupDamagedProperty, 'Third quarter');
+            that.control.addOverlay(that.groupDrugs, 'Fourth quarter');
+            that.control.addOverlay(that.groupCommon, 'F quarter');
+            that.control.addTo(that.mymap);
+            // that.markerClusters.addLayer(that.control);
+
+            that.groupAssault.addTo(that.mymap); // Adding to map now adds all child layers into the parent group.
+            that.groupBurglary.addTo(that.mymap);
+            that.groupDamagedProperty.addTo(that.mymap);
+            that.groupDrugs.addTo(that.mymap);
+            that.groupCommon.addTo(that.mymap);
 			d3.select("#container").style('opacity', 1);
+            }
+            catch(error){
+                console.log(error);
+            }
     	});
-	    that.mymap.addLayer(that.markerClusters);
+	    // that.mymap.addLayer(that.markerClusters);
+        that.markerClusters.addTo(that.mymap);
     }
 }
