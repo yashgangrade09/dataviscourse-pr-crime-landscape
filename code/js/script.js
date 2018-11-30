@@ -10,16 +10,20 @@ try{
 		d3.json("data/all_months.json").then(monthdata => {
 			d3.json("data/all_weeks.json").then(weekdata => {
 				d3.json("data/all_hours.json").then(hourdata => {
+					d3.json("data/crimedefinitions.json").then(crimedefinitions => {
 
-					let statisticsViewObj = new StatisticsView(yeardata, monthdata, weekdata, hourdata);
-					statisticsViewObj.showViews(activeYear, crime_list);
+						let statisticsViewObj = new StatisticsView(yeardata, monthdata, weekdata, hourdata);
+						statisticsViewObj.showViews(activeYear, crime_list);
 
-					let timeSliderObj = new TimeSlider(activeYear, mapViewObj, statisticsViewObj);
-					timeSliderObj.drawYearBar();
+						let timeSliderObj = new TimeSlider(activeYear, mapViewObj, statisticsViewObj);
+						timeSliderObj.drawYearBar();
 
-					let applyFilter = document.getElementById("crime-selection-btn");
-					applyFilter.onclick = function() {getData(mapViewObj, statisticsViewObj, timeSliderObj, activeYear);};
+						let applyFilter = document.getElementById("crime-selection-btn");
+						applyFilter.onclick = function() {getData(mapViewObj, statisticsViewObj, timeSliderObj);};
 
+						tooltip_render(crimedefinitions)
+
+					});
 				});
 			});
 		});

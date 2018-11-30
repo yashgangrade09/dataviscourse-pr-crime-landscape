@@ -42,11 +42,13 @@ class TimeSlider {
                     crime_list.push(checkboxes[i].value);
                 }
             }
-            // sliderText.attr('x', 200);
             that.activeYear = this.value;
-			// d3.select("#container").style('opacity', 0.25);
             that.mapView.showViews(that.activeYear, crime_list);
             that.statisticsView.showViews(that.activeYear, crime_list);
         });
+    }
+
+    getYear() {
+        return this.activeYear;
     }
 }

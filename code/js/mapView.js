@@ -55,6 +55,47 @@ class mapView{
 	          popupAnchor: [1, -34],
 	          shadowSize: [41, 41]
 	      });
+        var blackIcon = new L.Icon({
+            iconUrl: 'assets/img/marker-icon-2x-black.png',
+              shadowUrl: 'assets/img/marker-shadow.png',
+              iconSize: [25, 41],
+              iconAnchor: [12, 41],
+              popupAnchor: [1, -34],
+              shadowSize: [41, 41]
+          });
+        var blueIcon = new L.Icon({
+            iconUrl: 'assets/img/marker-icon-2x-blue.png',
+              shadowUrl: 'assets/img/marker-shadow.png',
+              iconSize: [25, 41],
+              iconAnchor: [12, 41],
+              popupAnchor: [1, -34],
+              shadowSize: [41, 41]
+          });
+        var greyIcon = new L.Icon({
+            iconUrl: 'assets/img/marker-icon-2x-grey.png',
+              shadowUrl: 'assets/img/marker-shadow.png',
+              iconSize: [25, 41],
+              iconAnchor: [12, 41],
+              popupAnchor: [1, -34],
+              shadowSize: [41, 41]
+          });
+        var orangeIcon = new L.Icon({
+            iconUrl: 'assets/img/marker-icon-2x-orange.png',
+              shadowUrl: 'assets/img/marker-shadow.png',
+              iconSize: [25, 41],
+              iconAnchor: [12, 41],
+              popupAnchor: [1, -34],
+              shadowSize: [41, 41]
+          });
+        var yellowIcon = new L.Icon({
+            iconUrl: 'assets/img/marker-icon-2x-yellow.png',
+              shadowUrl: 'assets/img/marker-shadow.png',
+              iconSize: [25, 41],
+              iconAnchor: [12, 41],
+              popupAnchor: [1, -34],
+              shadowSize: [41, 41]
+          });
+
 
         this.groupAssault = L.featureGroup.subGroup(this.markerClusters);
         this.groupBurglary = L.featureGroup.subGroup(this.markerClusters);
@@ -66,10 +107,39 @@ class mapView{
         this.groupTraffic = L.featureGroup.subGroup(this.markerClusters);
         this.groupWeapons = L.featureGroup.subGroup(this.markerClusters);
 
-	    var icons = [redIcon, greenIcon, violetIcon];
+	    var icons = [redIcon, greenIcon, violetIcon, blackIcon, blueIcon, greyIcon, orangeIcon, yellowIcon];
 
         for(let i = 0; i < markers.length; i++){
-            let icon = icons[2];
+            let icon;
+            switch(markers[i]["DESCRIPTION"]){
+                case "Assault":
+                    icon = violetIcon;
+                    break;
+                case "Burglary/ Larceny/ Robbery":
+                    icon = blueIcon;
+                    break;
+                case "Damaged Property":
+                    icon = greenIcon;
+                    break;
+                case "Drugs":
+                    icon = yellowIcon;
+                    break;
+                case "Homicide":
+                    icon = orangeIcon;
+                    break;
+                case "Traffic":
+                    icon = redIcon;
+                    break;
+                case "Weapons":
+                    icon = greyIcon;
+                    break;
+                case "Kidnap":
+                    icon = blackIcon;
+                    break;
+                default :
+                    icon = blackIcon;
+                    break;
+            }
 
             let dateStr = markers[i]["MONTH"] + "/" + markers[i]["DAY"] + "/" + markers[i]["YEAR"];
 
@@ -91,19 +161,19 @@ class mapView{
                     markerTemp.addTo(that.groupDrugs);
                     break;
                 case "Hit and Run":
-                    markerTemp.addTo(that.groupHitAndRun)
+                    markerTemp.addTo(that.groupHitAndRun);
                     break;
                 case "Homicide":
-                    markerTemp.addTo(that.groupHomicide)
+                    markerTemp.addTo(that.groupHomicide);
                     break;
                 case "Traffic":
-                    markerTemp.addTo(that.groupTraffic)
+                    markerTemp.addTo(that.groupTraffic);
                     break;
                 case "Weapons":
-                    markerTemp.addTo(that.groupWeapons)
+                    markerTemp.addTo(that.groupWeapons);
                     break;
                 case "Kidnap":
-                    markerTemp.addTo(that.groupKidnap)
+                    markerTemp.addTo(that.groupKidnap);
                     break;
                 default :
                     break;
@@ -149,7 +219,7 @@ class mapView{
                             that.control.addOverlay(that.groupBurglary, 'Burglary');
                             break;
                         case "Damaged Property":
-                            that.control.addOverlay(that.groupDamagedProperty, 'Damaged Prpoerty');
+                            that.control.addOverlay(that.groupDamagedProperty, 'Damaged property');
                             break;
                         case "Drugs":
                             that.control.addOverlay(that.groupDrugs, 'Drug offense');
