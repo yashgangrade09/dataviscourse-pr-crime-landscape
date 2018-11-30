@@ -122,7 +122,7 @@ class mapView{
 
         this.markerClusters.clearLayers();
 
-        d3.csv("processeddata/" + year + "_processed_nowhitespace.csv").then(function(yearData){
+        d3.csv("data/" + year + "_processed_nowhitespace.csv").then(function(yearData){
             try{
             	let plotData = JSON.parse(JSON.stringify(yearData));
                 let filteredData = plotData.filter(d => crime_list.indexOf(d["DESCRIPTION"]) != -1);
@@ -161,7 +161,7 @@ class mapView{
                             that.control.addOverlay(that.groupHomicide, 'Homicide');
                             break;
                         case "Kidnap":
-                            that.control.addOverlay(that.groupTraffic, 'Kidnap');
+                            that.control.addOverlay(that.groupTraffic, 'Kidnapping');
                             break;
                         case "Traffic":
                             that.control.addOverlay(that.groupWeapons, 'Traffic violation');
