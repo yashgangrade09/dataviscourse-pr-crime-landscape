@@ -2,6 +2,12 @@ class StatisticsView {
 
 	constructor () {
 
+		d3.json("processeddata/all_years.json").then(data => {
+			console.log(data);
+		});
+
+
+
 	}
 
 	showViews (year, crime_list) {
