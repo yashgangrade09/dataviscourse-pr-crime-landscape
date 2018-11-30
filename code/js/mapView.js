@@ -22,7 +22,7 @@ class mapView{
 
         this.control = L.control.layers(null, null, { collapsed: false, sortLayers: true});
 
-        that.control.addTo(this.mymap);
+        this.control.addTo(this.mymap);
 
 
         // console.log(this.mymap);
