@@ -73,7 +73,7 @@ class StatisticsView {
 
 	showViews (year, crime_list) {
 		//let bgcolor = ['#89729E', '#1F4788', '#6B9362', '#E29C45', '#E68364', '#6C7A89', '#5B8930', '#D24D57', '#5D3F6A', '#317589'];
-		let bgcolor = ['#8e44ad', '#2980b9', '#27ae60', '#f39c12', '#e67e22', '#e74c3c', '#7f8c8d', '#2c3e50']
+		let bgcolor = ['#8e44ad', '#2980b9', '#27ae60', '#f1c40f', '#e67e22', '#e74c3c', '#7f8c8d', '#2c3e50']
 		let brcolor = ['#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000'];
 
 		this.summaryChart.destroy();
