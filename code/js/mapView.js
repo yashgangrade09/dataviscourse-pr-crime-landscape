@@ -11,40 +11,18 @@ class mapView{
 
         let yearData = [];
 
-        for (var i = 2008; i < 2017; i++) {
-            d3.csv('processeddata/' + i + '_processed_nowhitespace.csv').then(function(csvData) {
-                yearData[i].push(csvData);
-                console.log(yearData);
-            })
-        }
+        // for (var i = 2008; i < 2017; i++) {
+        //     d3.csv('processeddata/' + i + '_processed_nowhitespace.csv').then(function(csvData) {
+        //         yearData[i].push(csvData);
+        //         console.log(yearData);
+        //     })
+        // }
 
-
-        // this.LayerGroup = L.layerGroup().addTo(this.mymap);
         this.markerClusters = L.markerClusterGroup({maxClusterRadius: 40, chunkedLoading: true});
-        // this.groupAssault = L.featureGroup.subGroup(this.markerClusters);
-        // this.groupBurglary = L.featureGroup.subGroup(this.markerClusters);
-        // this.groupDamagedProperty = L.featureGroup.subGroup(this.markerClusters);
-        // this.groupDrugs = L.featureGroup.subGroup(this.markerClusters);
-        // this.groupHitAndRun = L.featureGroup.subGroup(this.markerClusters);
-        // this.groupHomicide = L.featureGroup.subGroup(this.markerClusters);
-        // this.groupKidnap = L.featureGroup.subGroup(this.markerClusters);
-        // this.groupTraffic = L.featureGroup.subGroup(this.markerClusters);
-        // this.groupWeapons = L.featureGroup.subGroup(this.markerClusters);
 
         this.control = L.control.layers(null, null, { collapsed: false, sortLayers: true});
 
-        let that = this;
-        // that.control.addOverlay(that.groupAssault, 'Assault');
-        // that.control.addOverlay(that.groupBurglary, 'Burglary');
-        // that.control.addOverlay(that.groupDamagedProperty, 'Damaged Property');
-        // that.control.addOverlay(that.groupDrugs, 'Drugs');
-        // that.control.addOverlay(that.groupHitAndRun, 'Hit and Run');
-        // that.control.addOverlay(that.groupHomicide, 'Homicide');
-        // that.control.addOverlay(that.groupKidnap, 'Kidnap');
-        // that.control.addOverlay(that.groupTraffic, 'Traffic');
-        // that.control.addOverlay(that.groupWeapons, 'Weapons');
-
-        that.control.addTo(that.mymap);
+        that.control.addTo(this.mymap);
 
 
         // console.log(this.mymap);
@@ -92,12 +70,6 @@ class mapView{
 
         for(let i = 0; i < markers.length; i++){
             let icon = icons[2];
-            // if(markers[i]["DESCRIPTION"] == "Assault")
-            //     icon = icons[0];
-            // else if(markers[i]["DESCRIPTION"] == "Drugs")
-            //     icon = icons[2];
-            // else
-            //     icon = icons[1];
 
             let dateStr = markers[i]["MONTH"] + "/" + markers[i]["DAY"] + "/" + markers[i]["YEAR"];
 
@@ -149,8 +121,7 @@ class mapView{
 	        }).addTo(that.mymap);
 
         this.markerClusters.clearLayers();
-        // this.mymap.removeControl(this.control);
-    	
+
         d3.csv("processeddata/" + year + "_processed_nowhitespace.csv").then(function(yearData){
             try{
             	let plotData = JSON.parse(JSON.stringify(yearData));
@@ -163,11 +134,6 @@ class mapView{
                 }
 
                 changeOverlay()
-                // that.mymap.removeLayer(that.control);
-                // that.mymap.removeLayer(that.groupBurglary);
-                // that.mymap.removeLayer(that.groupDamagedProperty);
-                // that.mymap.removeLayer(that.groupDrugs);
-                // that.mymap.removeLayer(that.groupCommon);
                 that.control = L.control.layers(null, null, { collapsed: false })
 
 
@@ -208,36 +174,25 @@ class mapView{
                     }
                 }
 
-                // that.control.addOverlay(that.groupAssault, 'Assault');
-                // that.control.addOverlay(that.groupBurglary, 'Burglary');
-                // that.control.addOverlay(that.groupDamagedProperty, 'Damaged Property');
-                // that.control.addOverlay(that.groupDrugs, 'Drugs');
-                // that.control.addOverlay(that.groupHitAndRun, 'Hit and Run');
-                // that.control.addOverlay(that.groupHomicide, 'Homicide');
-                // that.control.addOverlay(that.groupKidnap, 'Kidnap');
-                // that.control.addOverlay(that.groupTraffic, 'Traffic');
-                // that.control.addOverlay(that.groupWeapons, 'Weapons');
 
                 that.control.addTo(that.mymap);
 
-                that.groupAssault.addTo(that.mymap); // Adding to map now adds all child layers into the parent group.
+                that.groupAssault.addTo(that.mymap);
                 that.groupBurglary.addTo(that.mymap);
                 that.groupDamagedProperty.addTo(that.mymap);
                 that.groupDrugs.addTo(that.mymap);
-                that.groupHitAndRun.addTo(that.mymap); // Adding to map now adds all child layers into the parent group.
+                that.groupHitAndRun.addTo(that.mymap);
                 that.groupHomicide.addTo(that.mymap);
                 that.groupKidnap.addTo(that.mymap);
                 that.groupTraffic.addTo(that.mymap);
                 that.groupWeapons.addTo(that.mymap);
-                
-                // console.log(that.groupAssault);
+
     			d3.select("#container").style('opacity', 1);
             }
             catch(error){
                 console.log(error);
             }
     	});
-	    // that.mymap.addLayer(that.markerClusters);
         that.markerClusters.addTo(that.mymap);
     }
 }

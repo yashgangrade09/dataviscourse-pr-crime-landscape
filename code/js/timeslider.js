@@ -35,7 +35,6 @@ class TimeSlider {
 									.style('text-anchor', 'start');
 
         yearSlider.on('mouseup', function() {
-            //console.log('Slider moved to ', this.value);
             let checkboxes = document.getElementsByName("crimeType");
             let crime_list = [];
             for (var i = 0; i < checkboxes.length; i++) {
