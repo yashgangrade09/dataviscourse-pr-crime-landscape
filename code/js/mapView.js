@@ -231,13 +231,13 @@ class mapView{
                             that.control.addOverlay(that.groupHomicide, 'Homicide');
                             break;
                         case "Kidnap":
-                            that.control.addOverlay(that.groupTraffic, 'Kidnapping');
+                            that.control.addOverlay(that.groupKidnap, 'Kidnapping');
                             break;
                         case "Traffic":
-                            that.control.addOverlay(that.groupWeapons, 'Traffic violation');
+                            that.control.addOverlay(that.groupTraffic, 'Traffic violation');
                             break;
                         case "Weapons":
-                            that.control.addOverlay(that.groupKidnap, 'Weapons offense');
+                            that.control.addOverlay(that.groupWeapons, 'Weapons offense');
                             break;
                         default :
                             break;
