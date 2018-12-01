@@ -4,7 +4,7 @@ The Crime Landscape of Salt Lake City project was developed to show the geograph
 
 This project was submitted by Rebeka Mukherjee, Archit Rathore and Yash Gangrade as part of CS 6630 Visualization for Data Science, School of Computing, University of Utah.
 
-
+```
 dataviscourse-pr-crime-landscape/	
 	code/
 		assets/
@@ -20,7 +20,6 @@ dataviscourse-pr-crime-landscape/
 			statisticsView.js
 			selectionView.js
 			timeslider.js
-
 			# javascript files related to libraries
 			leaflet.featuregroup.subgroup-src
 			leaflet
@@ -31,7 +30,7 @@ dataviscourse-pr-crime-landscape/
 	Reports/
 		# process book
 	README.md
-
+```
 
 GitHub Repository: https://github.com/yashgangrade09/dataviscourse-pr-crime-landscape
 
